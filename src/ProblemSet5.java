@@ -23,6 +23,8 @@ public class ProblemSet5 {
 
         System.out.println("\n" + ps.surroundMe("Hello", "John"));
         System.out.println("\n" + ps.endsMeet("Hi, World!", 3));
+        System.out.println("\n" + ps.middleMan("123mid1234"));
+        
     }
 
     /*
@@ -61,7 +63,10 @@ public class ProblemSet5 {
      */
 
     public String middleMan(String text) {
-        return "Hello";
+        String newString = (text.equals(null)) ? text:
+        (text.length() < 3 || text.length() % 2 == 0) ? text:
+        text.substring((int) Math.ceil(text.length() / 2) - 1,(int) Math.ceil(text.length() / 2) + 2);
+        return newString;
     }
 
     /*
