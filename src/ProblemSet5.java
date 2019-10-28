@@ -21,7 +21,8 @@ public class ProblemSet5 {
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
 
-        System.out.print(ps.surroundMe("Hello", "John"));
+        System.out.println("\n" + ps.surroundMe("Hello", "John"));
+        System.out.println("\n" + ps.endsMeet("Hi, World!", 3));
     }
 
     /*
@@ -46,7 +47,11 @@ public class ProblemSet5 {
      */
 
     public String endsMeet(String text, int n) {
-        return "Hello";
+        String newString = (text.equals(null)) ? text:
+        (text.length() < 1 || text.length() > 10) ? text:
+        (n < 1 || n > text.length()) ? text:
+        text.substring(0, n) + text.substring(text.length() - n, text.length());
+        return newString;
     }
 
     /*
