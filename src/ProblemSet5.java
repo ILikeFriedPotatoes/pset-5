@@ -21,7 +21,7 @@ public class ProblemSet5 {
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
 
-        ps.surroundMe("Hello, ", "test");
+        System.out.print(ps.surroundMe("Hello", "John"));
     }
 
     /*
@@ -32,12 +32,9 @@ public class ProblemSet5 {
      */
 
     public String surroundMe(String in, String out) {
-        String newString = in.concat(out);
-        if(out.length() != 4) {
-            System.out.print(in);
-        } else {
-            System.out.print(out.substring(0, 2) + in + out.substring(2, 4));
-        }
+        String newString = (out.length() != 4) ? in :
+        (in.equals(null) || out.equals(null)) ? in :
+        out.substring(0, 2) + in + out.substring(2, 4);
         return newString;
     }
 
