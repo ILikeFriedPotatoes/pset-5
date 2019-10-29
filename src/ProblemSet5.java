@@ -15,6 +15,7 @@
  * Work through these exercises on your own. Experiment, make mistakes, ask
  * questions, and fix your mistakes. It's the only way to get good at programming.
  */
+import java.lang.*;
 
 public class ProblemSet5 {
 
@@ -96,23 +97,22 @@ public class ProblemSet5 {
      */
 
     public int countMe(String text, char suffix) {
+        if(text.equals(null)) {
+            return -1;
+        } else if (!(Character.isLetter(suffix))) {
+            return -1;
+        }
         int count = 0;
-        for(int i = 0; i < text.length() - 99; i ++) {
-            if(text.substring(i, i + 1) == suffix + ' ') {
-                count ++;
+        for(int i = 0; i < text.length() - 1; i ++) {
+            if(text.charAt(i + 1) == ' ' || text.charAt(i + 1) == '.' || text.charAt(i + 1) == ',') {
+                count = (text.charAt(i) == suffix) ? count + 1 : count;
             }
         }
         char lastChar = text.charAt(text.length() - 1);
-        if(lastChar.isLetter(suffix)) {
+        if(text.charAt(text.length() - 1) == suffix) {
             count ++;
         }
-        if(text.equals(null)) {
-            return -1;
-        } else if ((suffix <= 'a' || suffix >= 'z') && (suffix >= 'A' || suffix <= 'Z') ) {
-            return -1;
-        } else {
-            return count;
-        }
+        return count;
     }
 
     /*
