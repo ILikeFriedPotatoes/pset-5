@@ -24,7 +24,8 @@ public class ProblemSet5 {
         System.out.println("\n" + ps.surroundMe("Hello", "John"));
         System.out.println("\n" + ps.endsMeet("123456789", 3));
         System.out.println("\n" + ps.middleMan("123mid123"));
-        System.out.println("\n" + ps.isCentered("123mid123", "test"));
+        System.out.println("\n" + ps.isCentered("123mid123", "mid"));
+        System.out.println("\n" + ps.countMe("This sentence ends in three eses.", 's'));
 
     }
 
@@ -85,7 +86,7 @@ public class ProblemSet5 {
         (target.length() != 3) ? false:
         (ps.middleMan(text).equals(target)) ? true:
         false;
-        return true;
+        return isCentered;
     }
 
     /*
@@ -95,7 +96,23 @@ public class ProblemSet5 {
      */
 
     public int countMe(String text, char suffix) {
-        return 3;
+        int count = 0;
+        for(int i = 0; i < text.length() - 99; i ++) {
+            if(text.substring(i, i + 1) == suffix + ' ') {
+                count ++;
+            }
+        }
+        char lastChar = text.charAt(text.length() - 1);
+        if(lastChar.isLetter(suffix)) {
+            count ++;
+        }
+        if(text.equals(null)) {
+            return -1;
+        } else if ((suffix <= 'a' || suffix >= 'z') && (suffix >= 'A' || suffix <= 'Z') ) {
+            return -1;
+        } else {
+            return count;
+        }
     }
 
     /*
