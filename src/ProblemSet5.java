@@ -26,7 +26,9 @@ public class ProblemSet5 {
         System.out.println("\n" + ps.endsMeet("123456789", 3));
         System.out.println("\n" + ps.middleMan("123mid123"));
         System.out.println("\n" + ps.isCentered("123mid123", "mid"));
-        System.out.println("\n" + ps.countMe("This sentence ends in three eses.", 's'));
+        System.out.println("\n" + ps.countMe("This sentence ends in three eseS.", 's'));
+        System.out.println("\n" + ps.triplets("aaaaa"));
+        System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
 
     }
 
@@ -122,7 +124,16 @@ public class ProblemSet5 {
      */
 
     public int triplets(String text) {
-        return 3;
+        if(text.equals(null)) {
+            return -1;
+        }
+        int count = 0;
+        for(int i = 0; i < text.length() - 2; i ++) {
+            char currentLetter = text.charAt(i);
+            count = (currentLetter == text.charAt(i + 1)) ? (currentLetter == text.charAt(i + 2)) ? count + 1 : count
+            : count;
+        }
+        return count;
     }
 
     /*
@@ -132,7 +143,17 @@ public class ProblemSet5 {
      */
 
     public long addMe(String text) {
-        return 99;
+        if(text.equals(null)) {
+            return -1;
+        }
+        long count = 0;
+        for(int i = 0; i < text.length() - 1; i ++) {
+            if(Character.isDigit(text.charAt(i))) {
+                int digit = Character.getNumericValue(text.charAt(i));
+                count += digit;
+            }
+        }
+        return count;
     }
 
     /*
@@ -142,6 +163,7 @@ public class ProblemSet5 {
      */
 
     public long sequence(String text) {
+
         return 99;
     }
 
@@ -153,6 +175,7 @@ public class ProblemSet5 {
      */
 
     public String intertwine(String a, String b) {
+
         return "Hi";
     }
 
@@ -163,6 +186,7 @@ public class ProblemSet5 {
      */
 
     public boolean isPalindrome(String text) {
+
         return true;
     }
 }
