@@ -30,7 +30,8 @@ public class ProblemSet5 {
         System.out.println("\n" + ps.triplets("aaaaa"));
         System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
         System.out.println("\n" + ps.sequence("TTTTtT, this is a  sssSssequence of 5."));
-        System.out.println("\n" + ps.intertwine("ACEGIKMO", "BDFHJLNP"));
+        System.out.println("\n" + ps.intertwine("This is the first sequence", "This is a sequence"));
+
     }
 
     /*
@@ -214,13 +215,19 @@ public class ProblemSet5 {
      */
 
     public String intertwine(String a, String b) {
-        if(a.equals(null) || b.equals(null)) {
+        if(a == null || b == null) {
             return null;
         }
         String newString = "";
-        for(int i = 0; i < a.length() || i < b.length(); i ++) {
+        int i;
+        for(i = 0; i < a.length() && i < b.length(); i ++) {
             newString += a.charAt(i);
             newString += b.charAt(i);
+        }
+        if(a.length() > b.length()) {
+            newString += a.substring(i, a.length());
+        } else {
+            newString += b.substring(i, b.length());
         }
         return newString;
     }
@@ -232,7 +239,7 @@ public class ProblemSet5 {
      */
 
     public boolean isPalindrome(String text) {
-
+        
         return true;
     }
 }
