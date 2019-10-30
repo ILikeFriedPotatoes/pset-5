@@ -29,7 +29,7 @@ public class ProblemSet5 {
         System.out.println("\n" + ps.countMe("This sentence ends in three eseS.", 's'));
         System.out.println("\n" + ps.triplets("aaaaa"));
         System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
-
+        System.out.println("\n" + ps.sequence("TTTTtT, this is a  sssSssequence of 5."));
     }
 
     /*
@@ -163,8 +163,24 @@ public class ProblemSet5 {
      */
 
     public long sequence(String text) {
-
-        return 99;
+        if(text.equals(null)) {
+            return -1;
+        }
+        int count = 1;
+        long finalCount = 0;
+        char currentLetter = text.charAt(0);
+        for(int i = 1; i < text.length(); i ++) {
+            if(text.charAt(i) == currentLetter) {
+                count += 1;
+                if(count >= finalCount) {
+                    finalCount = count;
+                }
+            } else {
+                count = 1;
+            }
+            currentLetter = text.charAt(i);
+        }
+        return finalCount;
     }
 
     /*
