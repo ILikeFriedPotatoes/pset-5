@@ -15,7 +15,6 @@
  * Work through these exercises on your own. Experiment, make mistakes, ask
  * questions, and fix your mistakes. It's the only way to get good at programming.
  */
-import java.lang.*;
 
 public class ProblemSet5 {
 
@@ -26,11 +25,11 @@ public class ProblemSet5 {
         System.out.println("\n" + ps.endsMeet(null, 3));
         System.out.println("\n" + ps.middleMan(null));
         System.out.println("\n" + ps.isCentered("123mid123", "mid"));
-        System.out.println("\n" + ps.countMe(null, 's'));
-        System.out.println("\n" + ps.triplets("aaaaa"));
+        System.out.println("\n" + ps.countMe("How many words end with s in these sentences", 's'));
+        System.out.println("\n" + ps.triplets("aaabaa"));
         System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
         System.out.println("\n" + ps.sequence("TTTTtT, this is a  sssSssequence of 5."));
-        System.out.println("\n" + ps.intertwine("This is the first sequence", "This is a sequence"));
+        System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
         System.out.println("\n" + ps.isPalindrome("deified"));
 
     }
@@ -131,14 +130,14 @@ public class ProblemSet5 {
         }
         int count = 0;
         for(int i = 0; i < text.length() - 1; i ++) {
-            if(text.charAt(i + 1) == ' ' || text.charAt(i + 1) == '.' || text.charAt(i + 1) == ',') {
+            if(text.charAt(i + 1) == ' ') {
                 count = (text.charAt(i) == suffix) ? count + 1 : count;
             }
         }
-        char lastChar = text.charAt(text.length() - 1);
         if(text.charAt(text.length() - 1) == suffix) {
             count ++;
         }
+        char lastChar = text.charAt(text.length() - 1);
         return count;
     }
 
