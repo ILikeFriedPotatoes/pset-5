@@ -31,6 +31,7 @@ public class ProblemSet5 {
         System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
         System.out.println("\n" + ps.sequence("TTTTtT, this is a  sssSssequence of 5."));
         System.out.println("\n" + ps.intertwine("This is the first sequence", "This is a sequence"));
+        System.out.println("\n" + ps.isPalindrome("deified"));
 
     }
 
@@ -239,7 +240,14 @@ public class ProblemSet5 {
      */
 
     public boolean isPalindrome(String text) {
-        
+        if(text == null) {
+            return false;
+        }
+        for(int i = 0; i < text.length(); i ++) {
+            if(text.charAt(i) != (text.charAt(text.length() - i - 1))) {
+                return false;
+            }
+        }
         return true;
     }
 }
