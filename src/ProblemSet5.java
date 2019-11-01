@@ -21,16 +21,16 @@ public class ProblemSet5 {
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
 
-        System.out.println("\n" + ps.surroundMe(null, "John"));
-        System.out.println("\n" + ps.endsMeet(null, 3));
-        System.out.println("\n" + ps.middleMan(null));
-        System.out.println("\n" + ps.isCentered("123mid123", "mid"));
-        System.out.println("\n" + ps.countMe("How many words end with s in these sentences", 's'));
-        System.out.println("\n" + ps.triplets("aaabaa"));
-        System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
-        System.out.println("\n" + ps.sequence("TTTTtT, this is a  sssSssequence of 5."));
-        System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
-        System.out.println("\n" + ps.isPalindrome("deified"));
+        //System.out.println("\n" + ps.surroundMe(" testing ", "isme"));
+        //System.out.println("\n" + ps.endsMeet(null, 3));
+        //System.out.println("\n" + ps.middleMan(null));
+        //System.out.println("\n" + ps.isCentered("123mid123", "mid"));
+        System.out.println("\n" + ps.countMe("The soda pop was taken by a cop", 'p'));
+        //System.out.println("\n" + ps.triplets("aaabaa"));
+        //System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
+        //System.out.println("\n" + ps.sequence("TTTTtT, this is a  sssSssequence of 5."));
+        //System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
+        //System.out.println("\n" + ps.isPalindrome("deIfied"));
 
     }
 
@@ -63,11 +63,11 @@ public class ProblemSet5 {
     public String endsMeet(String text, int n) {
         String newString = text;
         if(text == null) {
-            return newString;
+            return text;
         } else if(text.length() < 1 || text.length() > 10) {
-            return newString;
+            return text;
         } else if (n < 1 || n > text.length()) {
-            return newString;
+            return text;
         } else {
             newString = text.substring(0, n) + text.substring(text.length() - n, text.length());
         }
