@@ -21,16 +21,16 @@ public class ProblemSet5 {
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
 
-        //System.out.println("\n" + ps.surroundMe(" testing ", "isme"));
+        System.out.println("\n" + ps.surroundMe(" is testing ", "heme"));
         //System.out.println("\n" + ps.endsMeet(null, 3));
         //System.out.println("\n" + ps.middleMan(null));
         //System.out.println("\n" + ps.isCentered("123mid123", "mid"));
-        System.out.println("\n" + ps.countMe("The soda pop was taken by a cop", 'p'));
-        //System.out.println("\n" + ps.triplets("aaabaa"));
+        //System.out.println("\n" + ps.countMe("The soda pop was taken by a cop", 'p'));
+        //System.out.println("\n" + ps.triplets("TTT This is a 900000 \\\ test case /// www"));
         //System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
-        //System.out.println("\n" + ps.sequence("TTTTtT, this is a  sssSssequence of 5."));
+        //System.out.println("\n" + ps.sequence("tt ttt ttttt Testing this ia pop quiz jjjj jj"));
         //System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
-        //System.out.println("\n" + ps.isPalindrome("deIfied"));
+        System.out.println("\n" + ps.isPalindrome("123racecare321"));
 
     }
 
@@ -191,7 +191,7 @@ public class ProblemSet5 {
             return -1;
         }
         int count = 1;
-        long finalCount = 0;
+        long finalCount = 1;
         char currentLetter = text.charAt(0);
         for(int i = 1; i < text.length(); i ++) {
             if(text.charAt(i) == currentLetter) {
