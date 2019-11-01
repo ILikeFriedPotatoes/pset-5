@@ -30,7 +30,7 @@ public class ProblemSet5 {
         //System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
         //System.out.println("\n" + ps.sequence("tt ttt ttttt Testing this ia pop quiz jjjj jj"));
         //System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
-        System.out.println("\n" + ps.isPalindrome("123racecare321"));
+        System.out.println("\n" + ps.isPalindrome("123racecar321"));
 
     }
 
@@ -242,7 +242,7 @@ public class ProblemSet5 {
         if(text == null) {
             return false;
         }
-        for(int i = 0; i < text.length(); i ++) {
+        for(int i = 0; i < text.length() / 2; i ++) {
             if(text.charAt(i) != (text.charAt(text.length() - i - 1))) {
                 return false;
             }
