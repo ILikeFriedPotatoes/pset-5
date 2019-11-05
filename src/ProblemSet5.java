@@ -27,10 +27,10 @@ public class ProblemSet5 {
         //System.out.println("\n" + ps.middleMan("t"));
         //System.out.println("\n" + ps.isCentered("123mid123", "mid"));
         //System.out.println("\n" + ps.countMe("The soda pop was taken by a cop", 'a'));
-        //System.out.println("\n" + ps.triplets("TTT This is a 900000 \\\ test case /// www"));
+        System.out.println("\n" + ps.triplets("TTT This is a 900000 \\\\\\ test case /// www"));
         //System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
         //System.out.println("\n" + ps.sequence("tjjjjjjjjjjt ttt ttttt Testing this ia pop quiz jjjj"));
-        //System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY A A A A A A A A A sTRING a Is now longer than string b", "BDFHJLNPRTVXZ Now I know my ABC's"));
+        //System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
         //System.out.println("\n" + ps.isPalindrome("123racecar321"));
 
     }
@@ -155,8 +155,9 @@ public class ProblemSet5 {
         int count = 0;
         for(int i = 0; i < text.length() - 2; i ++) {
             char currentLetter = text.charAt(i);
-            count = (currentLetter == text.charAt(i + 1)) ? (currentLetter == text.charAt(i + 2)) ? count + 1 : count
-            : count;
+            if(currentLetter == text.charAt(i + 1) && currentLetter == text.charAt(i + 2)) {
+                count ++;
+            }
         }
         return count;
     }
