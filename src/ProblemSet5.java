@@ -20,19 +20,16 @@ public class ProblemSet5 {
 
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
-
-
-        //System.out.println("\n" + ps.surroundMe("e lord of the rin", "Thgs"));
-        //System.out.println("\n" + ps.endsMeet("Testing", 3));
-        //System.out.println("\n" + ps.middleMan("t"));
-        //System.out.println("\n" + ps.isCentered("123mid123", "mid"));
-        //System.out.println("\n" + ps.countMe("The soda pop was taken by a cop", 'a'));
+        System.out.println("\n" + ps.surroundMe("e lord of the rin", "Thgs"));
+        System.out.println("\n" + ps.endsMeet("Testing", 3));
+        System.out.println("\n" + ps.middleMan("t"));
+        System.out.println("\n" + ps.isCentered("123mid123", "mid"));
+        System.out.println("\n" + ps.countMe("The soda pop was taken by a cop", 'a'));
         System.out.println("\n" + ps.triplets("TTT This is a 900000 \\\\\\ test case /// www"));
-        //System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
-        //System.out.println("\n" + ps.sequence("tjjjjjjjjjjt ttt ttttt Testing this ia pop quiz jjjj"));
-        //System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
-        //System.out.println("\n" + ps.isPalindrome("123racecar321"));
-
+        System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
+        System.out.println("\n" + ps.sequence("tjjjjjjjjjjt ttt ttttt Testing this ia pop quiz jjjj"));
+        System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
+        System.out.println("\n" + ps.isPalindrome("123racecar321"));
     }
 
     /*
