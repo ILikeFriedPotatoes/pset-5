@@ -61,7 +61,21 @@ public class ProblemSet5 {
         System.out.println("\n" + ps.triplets("abc"));
         System.out.println("\n" + ps.triplets(null));
 
+        System.out.println("\n" + "Exercise 7");
 
+        System.out.println("\n" + ps.addMe("123 abc 123"));
+        System.out.println("\n" + ps.addMe("abcdefghijk"));
+        System.out.println("\n" + ps.addMe(null));
+
+        System.out.println("\n" + "Exercise 8");
+
+        System.out.println("\n" + ps.sequence("abbccccdddd"));
+        System.out.println("\n" + ps.sequence("aAabBbBb"));
+        System.out.println("\n" + ps.sequence(""));
+        System.out.println("\n" + ps.sequence(null));
+
+        System.out.println("\n" + "Exercise 9");
+        System.out.println("\n" + "Exercise 10");
 
     }
 
@@ -222,8 +236,8 @@ public class ProblemSet5 {
         text = unescapeString(text);
         int count = 0;
         for(int i = 0; i < text.length() - 2; i ++) {
-            char currentLetter = text.charAt(i);
-            if(currentLetter == text.charAt(i + 1) && currentLetter == text.charAt(i + 2)) {
+            char currentCharacter = text.charAt(i);
+            if(currentCharacter == text.charAt(i + 1) && currentCharacter == text.charAt(i + 2)) {
                 count ++;
             }
         }
@@ -261,12 +275,15 @@ public class ProblemSet5 {
         if(text == null) {
             return -1;
         }
+        if(text.length() == 0) {
+            return 0;
+        }
         text = unescapeString(text);
         long count = 1;
         long finalCount = 1;
-        char currentLetter = text.charAt(0);
+        char currentCharacter = text.charAt(0);
         for(int i = 1; i < text.length(); i ++) {
-            if(text.charAt(i) == currentLetter) {
+            if(text.charAt(i) == currentCharacter) {
                 count += 1;
                 if(count >= finalCount) {
                     finalCount = count;
@@ -274,7 +291,7 @@ public class ProblemSet5 {
             } else {
                 count = 1;
             }
-            currentLetter = text.charAt(i);
+            currentCharacter = text.charAt(i);
         }
         return finalCount;
     }
