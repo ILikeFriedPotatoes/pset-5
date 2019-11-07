@@ -20,16 +20,72 @@ public class ProblemSet5 {
 
     public static void main(String[] args) {
         ProblemSet5 ps = new ProblemSet5();
-        System.out.println("\n" + ps.surroundMe("e lord of the rin", "Thgs"));
-        System.out.println("\n" + ps.endsMeet("Testing", 3));
-        System.out.println("\n" + ps.middleMan("t"));
-        System.out.println("\n" + ps.isCentered("123mid123", "mid"));
-        System.out.println("\n" + ps.countMe("The soda pop was taken by a cop", 'a'));
-        System.out.println("\n" + ps.triplets("TTT This is a 900000 \\\\\\ test case /// www"));
-        System.out.println("\n" + ps.addMe("This 3 is a 3 test 49."));
-        System.out.println("\n" + ps.sequence("tjjjjjjjjjjt ttt ttttt Testing this ia pop quiz jjjj"));
-        System.out.println("\n" + ps.intertwine("ACEGIKMOQSUWY", "BDFHJLNPRTVXZ Now I know my ABC's"));
-        System.out.println("\n" + ps.isPalindrome("123racecar321"));
+        System.out.println("\n" + ps.surroundMe("cde", "abfg"));
+        System.out.println("\n" + ps.surroundMe(null, "####"));
+        System.out.println("\n" + ps.surroundMe("####", null));
+        System.out.println("\n" + ps.surroundMe("abc", "123"));
+
+        System.out.println("\n" + "Exercise 2");
+
+        System.out.println("\n" + ps.endsMeet("abcdefg", 2));
+        System.out.println("\n" + ps.endsMeet(null, 2));
+        System.out.println("\n" + ps.endsMeet("", 2));
+        System.out.println("\n" + ps.endsMeet("abc", -1));
+
+        System.out.println("\n" + "Exercise 3");
+
+        System.out.println("\n" + ps.middleMan("abcdefg"));
+        System.out.println("\n" + ps.middleMan(null));
+        System.out.println("\n" + ps.middleMan("12"));
+        System.out.println("\n" + ps.middleMan("a"));
+
+        System.out.println("\n" + "Exercise 4");
+
+        System.out.println("\n" + ps.isCentered("abcdefg", "cde"));
+        System.out.println("\n" + ps.isCentered("abcdefg", "abc"));
+        System.out.println("\n" + ps.isCentered(null, "abc"));
+        System.out.println("\n" + ps.isCentered("abcd", "abc"));
+        System.out.println("\n" + ps.isCentered("abc", null));
+        System.out.println("\n" + ps.isCentered("abcdefg", "cd"));
+
+        System.out.println("\n" + "Exercise 5");
+
+        System.out.println("\n" + ps.countMe("I am an example sentence", 'e'));
+        System.out.println("\n" + ps.countMe(null, 'a'));
+        System.out.println("\n" + ps.countMe("abc$ def$", '$'));
+
+        System.out.println("\n" + "Exercise 6");
+
+        System.out.println("\n" + ps.triplets("aaabbbccc"));
+        System.out.println("\n" + ps.triplets("aaaa"));
+        System.out.println("\n" + ps.triplets("abc"));
+        System.out.println("\n" + ps.triplets(null));
+
+
+
+    }
+
+    /*
+    *
+    * Unescapes the escape sequences in a strings
+    *
+    */
+    public String unescapeString(String input) {
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i <input.length(); i++) {
+            switch (input.charAt(i)) {
+                case '\t': sb.append("\\t"); break;
+                case '\b': sb.append("\\b"); break;
+                case '\n': sb.append("\\n"); break;
+                case '\r': sb.append("\\r"); break;
+                case '\f': sb.append("\\f"); break;
+                case '\'': sb.append("\\\'"); break;
+                case '\"': sb.append("\\\""); break;
+                case '\\': sb.append("\\\\"); break;
+                default: sb.append(input.charAt(i));
+            }
+        }
+        return sb.toString();
     }
 
     /*
@@ -40,11 +96,17 @@ public class ProblemSet5 {
      */
 
      public String surroundMe(String in, String out) {
-        String newString = "in";
-        if (in == null || out == null) {
+        if (in == null) {
             return in;
-        } else if(out.length() != 4) {
-            return in;
+        }
+        in = unescapeString(in);
+        String newString = in;
+        if (out == null) {
+            return newString;
+        }
+        out = unescapeString(out);
+        if(out.length() != 4) {
+            return newString;
         } else {
             newString = out.substring(0, 2) + in + out.substring(2, 4);
         }
@@ -59,10 +121,12 @@ public class ProblemSet5 {
      */
 
     public String endsMeet(String text, int n) {
-        String newString = text;
         if(text == null) {
             return text;
-        } else if(text.length() < 1 || text.length() > 10) {
+        }
+        text = unescapeString(text);
+        String newString = text;
+        if(text.length() < 1 || text.length() > 10) {
             return text;
         } else if (n < 1 || n > text.length()) {
             return text;
@@ -79,10 +143,12 @@ public class ProblemSet5 {
      */
 
     public String middleMan(String text) {
-        String newString = text;
         if(text == null) {
             return text;
-        } else if(text.length() < 3 || text.length() % 2 == 0) {
+        }
+        text = unescapeString(text);
+        String newString = text;
+        if(text.length() < 3 || text.length() % 2 == 0) {
             return text;
         } else {
             newString = text.substring((int) Math.ceil(text.length() / 2) - 1,(int) Math.ceil(text.length() / 2) + 2);
@@ -98,16 +164,19 @@ public class ProblemSet5 {
      */
 
     public boolean isCentered(String text, String target) {
-        ProblemSet5 ps = new ProblemSet5();
-        if(text == null) {
+        if(text == null || target == null) {
             return false;
-        } else if(text.length() < 3 || text.length() % 2 == 0) {
+        }
+        text = unescapeString(text);
+        target = unescapeString(target);
+        if(text.length() < 3 || text.length() % 2 == 0) {
             return false;
-        } else if (target == null) {
+        }
+        String middleOfText = text.substring((int) Math.ceil(text.length() / 2) - 1,(int) Math.ceil(text.length() / 2)
+         + 2);
+        if (target.length() != 3) {
             return false;
-        } else if (target.length() != 3) {
-            return false;
-        } else if (ps.middleMan(text).equals(target)) {
+        } else if (middleOfText.equals(target)) {
             return true;
         } else {
             return false;
@@ -126,6 +195,7 @@ public class ProblemSet5 {
         } else if (!(Character.isLetter(suffix))) {
             return -1;
         }
+        text = unescapeString(text);
         int count = 0;
         for(int i = 0; i < text.length() - 1; i ++) {
             if(text.charAt(i + 1) == ' ') {
@@ -149,6 +219,7 @@ public class ProblemSet5 {
         if(text == null) {
             return -1;
         }
+        text = unescapeString(text);
         int count = 0;
         for(int i = 0; i < text.length() - 2; i ++) {
             char currentLetter = text.charAt(i);
@@ -169,6 +240,7 @@ public class ProblemSet5 {
         if(text == null) {
             return -1;
         }
+        text = unescapeString(text);
         long count = 0;
         for(int i = 0; i < text.length() - 1; i ++) {
             if(Character.isDigit(text.charAt(i))) {
@@ -189,6 +261,7 @@ public class ProblemSet5 {
         if(text == null) {
             return -1;
         }
+        text = unescapeString(text);
         long count = 1;
         long finalCount = 1;
         char currentLetter = text.charAt(0);
@@ -217,6 +290,8 @@ public class ProblemSet5 {
         if(a == null || b == null) {
             return null;
         }
+        a = unescapeString(a);
+        b = unescapeString(b);
         String newString = "";
         int i;
         for(i = 0; i < a.length() && i < b.length(); i ++) {
@@ -241,6 +316,7 @@ public class ProblemSet5 {
         if(text == null) {
             return false;
         }
+        text = unescapeString(text);
         for(int i = 0; i < text.length() / 2; i ++) {
             if(text.charAt(i) != (text.charAt(text.length() - i - 1))) {
                 return false;
