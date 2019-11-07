@@ -75,7 +75,22 @@ public class ProblemSet5 {
         System.out.println("\n" + ps.sequence(null));
 
         System.out.println("\n" + "Exercise 9");
+
+
+        System.out.println("\n" + ps.intertwine("aceg", "bdfh"));
+        System.out.println("\n" + ps.intertwine("abc", "12345"));
+        System.out.println("\n" + ps.intertwine(null, "abcd"));
+        System.out.println("\n" + ps.intertwine("abc", null));
+        System.out.println("\n" + ps.intertwine(null, null));
+        System.out.println("\n" + ps.intertwine("aceg", ""));
+        System.out.println("\n" + ps.intertwine("", "bdfh"));
+
         System.out.println("\n" + "Exercise 10");
+
+        System.out.println("\n" + ps.isPalindrome("racecar"));
+        System.out.println("\n" + ps.isPalindrome("Madam"));
+        System.out.println("\n" + ps.isPalindrome("null"));
+        System.out.println("\n" + ps.isPalindrome(""));
 
     }
 
@@ -330,7 +345,7 @@ public class ProblemSet5 {
      */
 
     public boolean isPalindrome(String text) {
-        if(text == null) {
+        if(text == null || text.length() == 0) {
             return false;
         }
         text = unescapeString(text);
